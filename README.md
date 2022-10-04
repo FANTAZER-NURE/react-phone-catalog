@@ -1,9 +1,16 @@
-# React TypeScript Starter Pack
+# React Phone catalog
 
-To use this template click `Use this template`
+[DEMO](https://fantazer-nure.github.io/react-phone-catalog/)
 
-### Available Scripts
+## Used technologies
+  * HTML
+  * SASS
+  * Slick slider
+  * React
+  * React Router
+  * REST API
+  * Fetch
+  * localSotrage
 
-`Deploy` - available to deploy your application to gh-pages
-
-`SCSS Preprocessor` - available to write your styles with modern style language
+## Description
+[design](https://www.figma.com/file/uEetgWenSRxk9jgiym6Yzp/Phone-catalog-redesign?node-id=1%3A2)
