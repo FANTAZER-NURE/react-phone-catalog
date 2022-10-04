@@ -304,7 +304,7 @@ export const ProductDetailsPage = () => {
                   className={classNames(
                     'button-text slider__button slider__button--product',
                     { slider__button: !inCart },
-                    { 'slider__button--active': inCart},
+                    { 'slider__button--active': inCart },
                   )}
                   onClick={() => {
                     for (let i = 0; i < cartProducts.length; i += 1) {
@@ -318,7 +318,6 @@ export const ProductDetailsPage = () => {
                         return;
                       }
                     }
-
 
                     if (!isDuplicate) {
                       save([...cartProducts, product]);

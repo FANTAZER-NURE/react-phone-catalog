@@ -92,7 +92,7 @@ export const ProductCard: React.FC<Props<Product[]>> = (
           className={classNames(
             'button-text',
             { slider__button: !inCart || !isDuplicate },
-            { 'slider__button--active': inCart || isDuplicate},
+            { 'slider__button--active': inCart || isDuplicate },
           )}
           onClick={(e) => {
             e.preventDefault();
