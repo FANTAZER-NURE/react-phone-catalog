@@ -20,6 +20,7 @@ export const ProductCard: React.FC<Props<Product[]>> = (
 ) => {
   const [hasErrorMessage, setHasErrorMessage] = useState(false);
   const [isDuplicate, setIsDuplicate] = useState(false);
+  const [inCart, setInCart] = useState(false);
   let isFavourite = false;
 
   useEffect(() => {
@@ -90,8 +91,8 @@ export const ProductCard: React.FC<Props<Product[]>> = (
           type="button"
           className={classNames(
             'button-text',
-            { slider__button: !isDuplicate },
-            { 'slider__button--active': isDuplicate },
+            { slider__button: !inCart || !isDuplicate },
+            { 'slider__button--active': inCart || isDuplicate},
           )}
           onClick={(e) => {
             e.preventDefault();
@@ -111,9 +112,11 @@ export const ProductCard: React.FC<Props<Product[]>> = (
             if (!hasErrorMessage) {
               save([...products, product]);
             }
+
+            setInCart(true);
           }}
         >
-          {isDuplicate
+          {inCart || isDuplicate
             ? 'Added to cart'
             : 'Add to cart'}
         </button>

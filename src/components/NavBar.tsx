@@ -49,7 +49,7 @@ export const Navbar = () => {
 
             >
               <PageNavLink
-                to="/"
+                to="/home"
                 text="Home"
                 setMenuOpened={setMenuOpened}
               />

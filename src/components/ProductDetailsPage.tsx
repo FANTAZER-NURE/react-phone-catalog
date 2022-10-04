@@ -26,6 +26,17 @@ export const ProductDetailsPage = () => {
   const [cartProducts, save] = useLocalStorage<Product[]>('products', []);
   const [favorites, saveFav] = useLocalStorage<Product[]>('favorites', []);
   let isFavourite = false;
+  let inCart = false;
+
+  if (product) {
+    for (let i = 0; i < cartProducts.length; i += 1) {
+      if (cartProducts[i].id === product.id) {
+        inCart = true;
+
+        break;
+      }
+    }
+  }
 
   const sliderProducts = [
     products[getRandomItem(products)],
@@ -289,7 +300,12 @@ export const ProductDetailsPage = () => {
               <div className="slider__button-wrapper slider__button-wrapper--product">
                 <button
                   type="button"
-                  className="slider__button slider__button--product button-text"
+                  // className="slider__button slider__button--product button-text"
+                  className={classNames(
+                    'button-text slider__button slider__button--product',
+                    { slider__button: !inCart },
+                    { 'slider__button--active': inCart},
+                  )}
                   onClick={() => {
                     for (let i = 0; i < cartProducts.length; i += 1) {
                       if (cartProducts[i].id === product.id) {
@@ -303,12 +319,15 @@ export const ProductDetailsPage = () => {
                       }
                     }
 
+
                     if (!isDuplicate) {
                       save([...cartProducts, product]);
                     }
                   }}
                 >
-                  Add to cart
+                  {inCart
+                    ? 'Added to cart'
+                    : 'Add to cart'}
                 </button>
 
                 <button
@@ -316,7 +335,7 @@ export const ProductDetailsPage = () => {
                   className="slider__button--like"
                   onClick={() => {
                     if (isFavourite) {
-                      const newFavorites = favorites.filter((item:Product) => item.id !== product.id);
+                      const newFavorites = favorites.filter((item: Product) => item.id !== product.id);
 
                       saveFav([...newFavorites]);
                     } else {
