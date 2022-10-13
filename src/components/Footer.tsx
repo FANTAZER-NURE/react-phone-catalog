@@ -42,6 +42,8 @@ export const Footer = () => {
             <a
               href="https://www.linkedin.com/in/oleh-kalynovskyi-21aa29250/"
               className="footer__link"
+              target="_blank"
+              rel="noreferrer"
             >
               contacts
             </a>
